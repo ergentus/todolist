@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 export type TaskType = {
-	id: number
-	title: string
-	isDone: boolean
+   id: number
+   title: string
+   isDone: boolean
 }
 
 type TodoListProbsType = {
@@ -11,9 +11,9 @@ type TodoListProbsType = {
    tasks: TaskType[]
 }
 
-export const TodoList: FC<TodoListProbsType> = (props) => {
+export const TodoList = (props: TodoListProbsType): JSX.Element => {
    return (
-      <div className='todolist'>
+      <div className='todolist' >
          <h3>{props.title}</h3>
          <div>
             <input />
@@ -35,7 +35,7 @@ export const TodoList: FC<TodoListProbsType> = (props) => {
             <button>Active</button>
             <button>Completed</button>
          </div>
-      </div>
+      </div >
    )
 }
 
