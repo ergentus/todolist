@@ -12,3 +12,10 @@
   padding: 20px;
   background-color: rgb(171, 202, 248);
 }
+
+.todolist-empty {
+  border: 2px solid hotpink;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgb(204, 98, 83);
+}
