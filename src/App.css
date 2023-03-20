@@ -19,3 +19,25 @@
   padding: 20px;
   background-color: rgb(204, 98, 83);
 }
+
+.task {
+  font-weight: bold;
+}
+
+.task-done {
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+.btn-active {
+  background-color: cornflowerblue;
+  color: white;
+  border: 1px solid #4f4fcb;
+  border-radius: 2px;
+}
+
+.input-error {
+  outline: none;
+  border: 4px solid hotpink;
+  margin: -4px 0 -4px -4px;
+}

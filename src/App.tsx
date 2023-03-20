@@ -14,12 +14,7 @@ function App(): JSX.Element {
 		{ id: v1(), title: "ES6/TS", isDone: false },
 		{ id: v1(), title: "REDUX", isDone: false }
 	])
-
 	const [filter, setFilter] = useState<FilterValuesType>('all')
-
-	let tasksForRender: TaskType[] = tasks
-	if (filter === 'active') tasksForRender = tasks.filter((t) => t.isDone === false)
-	if (filter === 'completed') tasksForRender = tasks.filter((t) => t.isDone === true)
 
 	const listFilter = (name: FilterValuesType) => {
 		setFilter(name)
@@ -38,14 +33,33 @@ function App(): JSX.Element {
 		setTasks([newTask, ...tasks])
 	}
 
+	const changeTaskStatus = (taskId: string, newIsDone: boolean) => {
+		setTasks(tasks.map(t => t.id === taskId ? {...t, isDone: newIsDone} : t))
+	}
+
+	const getFiltredTasksForRender = (taskList:TaskType[], filterValue: FilterValuesType ) => {
+		switch (filterValue) {
+			case 'active':
+				return taskList.filter(t => !t.isDone)
+			case 'completed':
+				return taskList.filter(t => t.isDone)
+			default:
+				return taskList
+		}
+	}
+	// let tasksForRender: TaskType = getFiltredTasksForRender(tasks, filter)
+
 	return (
 		<div className="App">
 			<TodoList
 				title={'What to learn'}
-				tasks={tasksForRender}
+				tasks={getFiltredTasksForRender(tasks,filter)}
+				filter={filter}
 				removeTask={removeTask}
 				addTask={addTask}
-				listFilter={listFilter} />
+				listFilter={listFilter}
+				changeTaskStatus={changeTaskStatus}
+			/>
 		</div>
 	);
 }
