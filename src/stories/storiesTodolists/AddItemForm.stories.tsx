@@ -1,34 +1,30 @@
 import type {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
-import {AddItemForm} from './AddItemForm'
+import {AddItemForm} from '../../AddItemForm'
 import TextField from '@mui/material/TextField/TextField'
 import {IconButton} from '@mui/material'
 import {AddBox} from '@mui/icons-material'
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
+import React from 'react'
 
 
 const meta: Meta<typeof AddItemForm> = {
 	title: 'TODOLISTS/AddItemForm',
 	component: AddItemForm,
-
 	tags: ['autodocs'],
 
 	argTypes: {
 		addItem: {
-			description: 'Button clicked',
-			action: 'clicked',
+			description: 'Button clicked inside form',
 		},
 	},
 }
 
 export default meta
-type Story = StoryObj<typeof AddItemForm>
-
+type Story = StoryObj<typeof AddItemForm>;
 
 export const AddItemFormStory: Story = {
-
 	args: {
-		addItem: action('Button clicked inside'),
+		addItem: action('Button clicked inside form'),
 	},
 }
 
@@ -38,10 +34,8 @@ export const AddItemFormErrorStory: React.FC<Story> = () => {
 		<TextField variant="outlined"
 					  error={true}
 					  value={''}
-					  onChange={() => {
-					  }}
-					  onKeyPress={() => {
-					  }}
+					  onChange={() => {}}
+					  onKeyPress={() => {}}
 					  label="Title"
 					  helperText={'Title is required'}
 		/>

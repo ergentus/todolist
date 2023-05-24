@@ -7,7 +7,6 @@ type SuperCheckBoxPropsType = {
 }
 
 
-
 const SuperCheckBox = (props: SuperCheckBoxPropsType) => {
 
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
