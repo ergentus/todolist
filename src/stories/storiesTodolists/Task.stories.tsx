@@ -1,4 +1,3 @@
-import React from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 import {Task} from '../../Task'
 import {action} from '@storybook/addon-actions'
